@@ -1,6 +1,0 @@
-framework module Pods_BridgeConnect {
-  umbrella header "Pods-BridgeConnect-umbrella.h"
-
-  export *
-  module * { export * }
-}
