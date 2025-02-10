@@ -7,25 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05380416374EEDC3FA6048B0 /* CategoryScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AFBB66FC8A0EFE81A3C78E /* CategoryScrollView.swift */; };
+		0A9951B09BB73A6D356E1945 /* GoogleMapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB28C34E62216D4A42FE34A2 /* GoogleMapsService.swift */; };
 		100835C4C933D21A93096940 /* ResourceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07434DCF6448A9419776ED9 /* ResourceRepository.swift */; };
+		18691CC01A29CC7348F0808F /* Pods_BridgeConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABD392E894EE2D3FD60CE54 /* Pods_BridgeConnect.framework */; };
 		1A3C71E39E3DA0FFF3B6239F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F864F1C6DCA5B35EA609B /* LocationService.swift */; };
-		1FF405ABD3BC96A1E27FB06D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D55DFBE095AA6FE16A18F87 /* SceneDelegate.swift */; };
+		1DE42E9B701309F935FE9C83 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF26F15C6F607B7BF6F1D517 /* Configuration.swift */; };
 		2D5F5775A20B465986BCF8C8 /* BridgeConnectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766689E61A35C58C1E2A5991 /* BridgeConnectKit.framework */; };
-		3E67D1C2E7359F53C3541B66 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 85EBDB8C734ED279FD83902F /* Alamofire */; };
+		318659F3514B6D6CDC5226C1 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECD9206023A3F5970249EC0 /* GoogleMaps.framework */; };
+		36C36FAD5365DD990B1C6F79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4CF3C3A532B2E39C139558 /* ContentView.swift */; };
+		3E67D1C2E7359F53C3541B66 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F038E6197A9A4A00B8EA0B6 /* RealmSwift */; };
 		4540B0ADF3BA325E875D2DC7 /* BridgeConnectKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 766689E61A35C58C1E2A5991 /* BridgeConnectKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		473A42995ECD3A94CB99EAC5 /* ResourceMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D88A439258D3CCA97BAC67 /* ResourceMapView.swift */; };
+		4BF7254FDEE50098945F3389 /* ResourceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8224EFBAEC16D90D7F64D2 /* ResourceRowView.swift */; };
 		50CFEC8869821C58ACE6C644 /* ResourceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C97C6E0398B1DA0A0A9250 /* ResourceDetailView.swift */; };
 		50F5D4DF2CA547657AC4EE30 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E594D2959351A0B9F37CAB1 /* SettingsView.swift */; };
 		5506CEB5E5D9369939100D19 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62DD390B85BF2C2589C8F71 /* Resource.swift */; };
+		5A2B1CD58CBCEADCD4F976E6 /* ResourceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9156B4293EC7A464508967 /* ResourceListViewModel.swift */; };
 		64919BA4443C452CB728BA95 /* EditResourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396DEF4E11051B27F05558A4 /* EditResourceView.swift */; };
+		6F7E7EC75F6E0EDD106BDB88 /* Pods_BridgeConnectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40F55680764046BE7FAF849 /* Pods_BridgeConnectKit.framework */; };
+		8517BB1AEA450F6F73616F41 /* ResourceMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1DA43EBF1AF2135B3CF48 /* ResourceMapViewModel.swift */; };
+		863D11ABFA1A2EB773BC8808 /* PlaceSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6709ACD3C22D31273AB32A /* PlaceSearchResult.swift */; };
+		8D4FB8F878ED9FF979D5437B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 271AF09EAEDADA1DEF845DC7 /* RealmSwift */; };
 		9EF4DEE0C8EBC9BFE6C153F2 /* AddResourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3067C429E81E53F9C14F4B /* AddResourceView.swift */; };
 		A29E8F4FE83869AA55633598 /* BridgeConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68A90D7EB41CD0ADC945388 /* BridgeConnectApp.swift */; };
 		B4886E3DB9CDC5FF91379AB1 /* ResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9A6407DD626309BADD4058 /* ResourceType.swift */; };
-		CBCD3E59519CACE053051BBD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F038E6197A9A4A00B8EA0B6 /* RealmSwift */; };
+		B4CF36FC3917C56E4142326C /* ResourceListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAE7526BF69E80106C876C1 /* ResourceListContent.swift */; };
+		BABEEED56E3ACD4894874B39 /* GooglePlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB609F6A2BE69CF10AA01358 /* GooglePlaces.framework */; };
+		C34C4C456D8625EA24383F16 /* ResourceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D642448CD8A1D7C70F19A14C /* ResourceCategory.swift */; };
+		CBCD3E59519CACE053051BBD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 85EBDB8C734ED279FD83902F /* Alamofire */; };
+		D1279E86455B987F43A38DC3 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227101A96FAA9B66E54A5E21 /* MapAnnotation.swift */; };
+		D6F83837E52197825C54DC63 /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC97B17FD4A377ADA97736C /* MapService.swift */; };
+		D93F60B0A87CC8294A6A3DF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C754CE787C58629BBA54276F /* AppDelegate.swift */; };
 		E1AC1F765B19799DD59BDB30 /* ResourceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3035474922F292D0139913BC /* ResourceListView.swift */; };
 		EAA0844A59A9CFFE215D7E8B /* BridgeConnectKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3FE02472307267F4367C72 /* BridgeConnectKit.swift */; };
 		EFADAEC5BBA0D5A969213815 /* ResourceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FB6CAAA647E04E56D31D25 /* ResourceAnnotation.swift */; };
-		FA9D5A08F8E719E75C7826F5 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 271AF09EAEDADA1DEF845DC7 /* RealmSwift */; };
+		FA9D5A08F8E719E75C7826F5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B33D7D4DA375CFB2A54B57B7 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +70,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0D55DFBE095AA6FE16A18F87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1714FD5542AB75C6F4B0FB87 /* Pods-BridgeConnectKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BridgeConnectKit.release.xcconfig"; path = "Target Support Files/Pods-BridgeConnectKit/Pods-BridgeConnectKit.release.xcconfig"; sourceTree = "<group>"; };
+		227101A96FAA9B66E54A5E21 /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
+		2A9156B4293EC7A464508967 /* ResourceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceListViewModel.swift; sourceTree = "<group>"; };
+		2DAE7526BF69E80106C876C1 /* ResourceListContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceListContent.swift; sourceTree = "<group>"; };
 		3035474922F292D0139913BC /* ResourceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceListView.swift; sourceTree = "<group>"; };
 		396DEF4E11051B27F05558A4 /* EditResourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditResourceView.swift; sourceTree = "<group>"; };
 		48C97C6E0398B1DA0A0A9250 /* ResourceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceDetailView.swift; sourceTree = "<group>"; };
@@ -61,16 +81,33 @@
 		6A3FE02472307267F4367C72 /* BridgeConnectKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeConnectKit.swift; sourceTree = "<group>"; };
 		6E594D2959351A0B9F37CAB1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		766689E61A35C58C1E2A5991 /* BridgeConnectKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BridgeConnectKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79AFBB66FC8A0EFE81A3C78E /* CategoryScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryScrollView.swift; sourceTree = "<group>"; };
+		7DA0AD197B120236486B62C1 /* Pods-BridgeConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BridgeConnect.debug.xcconfig"; path = "Target Support Files/Pods-BridgeConnect/Pods-BridgeConnect.debug.xcconfig"; sourceTree = "<group>"; };
 		7F3F55A19FE1CCC416C487A1 /* BridgeConnect.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = BridgeConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C3F4079A9EB50268074718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		90FB3A0B7A2B404505A8684C /* Pods-BridgeConnectKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BridgeConnectKit.debug.xcconfig"; path = "Target Support Files/Pods-BridgeConnectKit/Pods-BridgeConnectKit.debug.xcconfig"; sourceTree = "<group>"; };
+		9D6709ACD3C22D31273AB32A /* PlaceSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchResult.swift; sourceTree = "<group>"; };
 		A62DD390B85BF2C2589C8F71 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		A68A90D7EB41CD0ADC945388 /* BridgeConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeConnectApp.swift; sourceTree = "<group>"; };
 		A9B7A548595829BDC97C6886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AF26F15C6F607B7BF6F1D517 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		B07434DCF6448A9419776ED9 /* ResourceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceRepository.swift; sourceTree = "<group>"; };
 		B2D88A439258D3CCA97BAC67 /* ResourceMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceMapView.swift; sourceTree = "<group>"; };
 		B46F864F1C6DCA5B35EA609B /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		B5501B0354C931F70171D8E9 /* Pods-BridgeConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BridgeConnect.release.xcconfig"; path = "Target Support Files/Pods-BridgeConnect/Pods-BridgeConnect.release.xcconfig"; sourceTree = "<group>"; };
+		BB28C34E62216D4A42FE34A2 /* GoogleMapsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsService.swift; sourceTree = "<group>"; };
+		C40F55680764046BE7FAF849 /* Pods_BridgeConnectKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BridgeConnectKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C754CE787C58629BBA54276F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CECD9206023A3F5970249EC0 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = System/Library/Frameworks/GoogleMaps.framework; sourceTree = SDKROOT; };
+		D1A1DA43EBF1AF2135B3CF48 /* ResourceMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceMapViewModel.swift; sourceTree = "<group>"; };
+		D642448CD8A1D7C70F19A14C /* ResourceCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceCategory.swift; sourceTree = "<group>"; };
+		DF4CF3C3A532B2E39C139558 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EABD392E894EE2D3FD60CE54 /* Pods_BridgeConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BridgeConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB609F6A2BE69CF10AA01358 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = System/Library/Frameworks/GooglePlaces.framework; sourceTree = SDKROOT; };
 		EF3067C429E81E53F9C14F4B /* AddResourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddResourceView.swift; sourceTree = "<group>"; };
+		EF8224EFBAEC16D90D7F64D2 /* ResourceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceRowView.swift; sourceTree = "<group>"; };
 		F1FB6CAAA647E04E56D31D25 /* ResourceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceAnnotation.swift; sourceTree = "<group>"; };
+		FDC97B17FD4A377ADA97736C /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +115,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBCD3E59519CACE053051BBD /* RealmSwift in Frameworks */,
-				3E67D1C2E7359F53C3541B66 /* Alamofire in Frameworks */,
+				CBCD3E59519CACE053051BBD /* Alamofire in Frameworks */,
+				3E67D1C2E7359F53C3541B66 /* RealmSwift in Frameworks */,
+				6F7E7EC75F6E0EDD106BDB88 /* Pods_BridgeConnectKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,8 +125,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9D5A08F8E719E75C7826F5 /* Alamofire in Frameworks */,
 				2D5F5775A20B465986BCF8C8 /* BridgeConnectKit.framework in Frameworks */,
-				FA9D5A08F8E719E75C7826F5 /* RealmSwift in Frameworks */,
+				318659F3514B6D6CDC5226C1 /* GoogleMaps.framework in Frameworks */,
+				BABEEED56E3ACD4894874B39 /* GooglePlaces.framework in Frameworks */,
+				8D4FB8F878ED9FF979D5437B /* RealmSwift in Frameworks */,
+				18691CC01A29CC7348F0808F /* Pods_BridgeConnect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +140,9 @@
 		16FF3E699042DD7E2ECC5199 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BB28C34E62216D4A42FE34A2 /* GoogleMapsService.swift */,
 				B46F864F1C6DCA5B35EA609B /* LocationService.swift */,
+				FDC97B17FD4A377ADA97736C /* MapService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -115,13 +159,26 @@
 		2BB94A8E486E1550A72002E7 /* BridgeConnectApp */ = {
 			isa = PBXGroup;
 			children = (
+				C754CE787C58629BBA54276F /* AppDelegate.swift */,
 				A68A90D7EB41CD0ADC945388 /* BridgeConnectApp.swift */,
 				85C3F4079A9EB50268074718 /* Info.plist */,
-				0D55DFBE095AA6FE16A18F87 /* SceneDelegate.swift */,
+				B10BA264112062993275F522 /* ViewModels */,
 				881838A595C8D76113B90369 /* Views */,
 			);
 			name = BridgeConnectApp;
 			path = BridgeConnectApp;
+			sourceTree = "<group>";
+		};
+		2E69B3380980DCED8AB5EF30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7DA0AD197B120236486B62C1 /* Pods-BridgeConnect.debug.xcconfig */,
+				B5501B0354C931F70171D8E9 /* Pods-BridgeConnect.release.xcconfig */,
+				90FB3A0B7A2B404505A8684C /* Pods-BridgeConnectKit.debug.xcconfig */,
+				1714FD5542AB75C6F4B0FB87 /* Pods-BridgeConnectKit.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		5430C85D01BE149D212AD514 /* Products */ = {
@@ -144,17 +201,32 @@
 		708C22CFDE1C741B43150EAA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				227101A96FAA9B66E54A5E21 /* MapAnnotation.swift */,
+				9D6709ACD3C22D31273AB32A /* PlaceSearchResult.swift */,
 				A62DD390B85BF2C2589C8F71 /* Resource.swift */,
 				F1FB6CAAA647E04E56D31D25 /* ResourceAnnotation.swift */,
+				D642448CD8A1D7C70F19A14C /* ResourceCategory.swift */,
 				4D9A6407DD626309BADD4058 /* ResourceType.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		82631F2DA4AB1104E9E661CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CECD9206023A3F5970249EC0 /* GoogleMaps.framework */,
+				EB609F6A2BE69CF10AA01358 /* GooglePlaces.framework */,
+				EABD392E894EE2D3FD60CE54 /* Pods_BridgeConnect.framework */,
+				C40F55680764046BE7FAF849 /* Pods_BridgeConnectKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		84D443817C0E9D56FACF7FF4 /* BridgeConnectKit */ = {
 			isa = PBXGroup;
 			children = (
 				6A3FE02472307267F4367C72 /* BridgeConnectKit.swift */,
+				AF26F15C6F607B7BF6F1D517 /* Configuration.swift */,
 				A9B7A548595829BDC97C6886 /* Info.plist */,
 				708C22CFDE1C741B43150EAA /* Models */,
 				6A0706D5515BB5D94735E8B1 /* Repositories */,
@@ -168,21 +240,44 @@
 			isa = PBXGroup;
 			children = (
 				EF3067C429E81E53F9C14F4B /* AddResourceView.swift */,
+				DF4CF3C3A532B2E39C139558 /* ContentView.swift */,
 				396DEF4E11051B27F05558A4 /* EditResourceView.swift */,
 				48C97C6E0398B1DA0A0A9250 /* ResourceDetailView.swift */,
 				3035474922F292D0139913BC /* ResourceListView.swift */,
 				B2D88A439258D3CCA97BAC67 /* ResourceMapView.swift */,
+				EF8224EFBAEC16D90D7F64D2 /* ResourceRowView.swift */,
 				6E594D2959351A0B9F37CAB1 /* SettingsView.swift */,
+				E7CF46E477FA91726C97CC4E /* Components */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B10BA264112062993275F522 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2A9156B4293EC7A464508967 /* ResourceListViewModel.swift */,
+				D1A1DA43EBF1AF2135B3CF48 /* ResourceMapViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		CE68BA20DDEAF26E08A7CB34 = {
 			isa = PBXGroup;
 			children = (
 				27C054D782FEE75AE114DCE4 /* Sources */,
+				82631F2DA4AB1104E9E661CB /* Frameworks */,
 				5430C85D01BE149D212AD514 /* Products */,
+				2E69B3380980DCED8AB5EF30 /* Pods */,
 			);
+			sourceTree = "<group>";
+		};
+		E7CF46E477FA91726C97CC4E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				79AFBB66FC8A0EFE81A3C78E /* CategoryScrollView.swift */,
+				2DAE7526BF69E80106C876C1 /* ResourceListContent.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,9 +287,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0A4D75D338CB09FDF25727A /* Build configuration list for PBXNativeTarget "BridgeConnect" */;
 			buildPhases = (
+				06E3199083FCEABE3D2A2646 /* [CP] Check Pods Manifest.lock */,
 				25811338661DCCA1D26C7FD6 /* Sources */,
 				9BE21AA7057B8DD463775290 /* Frameworks */,
 				9FE60BFAFD1CE8507A9A60DC /* Embed Frameworks */,
+				CC3C550522C621DB5A6666CC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,6 +300,7 @@
 			);
 			name = BridgeConnect;
 			packageProductDependencies = (
+				B33D7D4DA375CFB2A54B57B7 /* Alamofire */,
 				271AF09EAEDADA1DEF845DC7 /* RealmSwift */,
 			);
 			productName = BridgeConnect;
@@ -213,8 +311,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 653F0527DAD3520864D612C9 /* Build configuration list for PBXNativeTarget "BridgeConnectKit" */;
 			buildPhases = (
+				84D69E0BE5B0A837E84BA8D5 /* [CP] Check Pods Manifest.lock */,
 				F39E2C54BF4F0584E2CF5F8A /* Sources */,
 				968889B4A940D0292688A4ED /* Frameworks */,
+				EAC7D4001E8DB4C592DA07A4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -222,8 +322,8 @@
 			);
 			name = BridgeConnectKit;
 			packageProductDependencies = (
-				4F038E6197A9A4A00B8EA0B6 /* RealmSwift */,
 				85EBDB8C734ED279FD83902F /* Alamofire */,
+				4F038E6197A9A4A00B8EA0B6 /* RealmSwift */,
 			);
 			productName = BridgeConnectKit;
 			productReference = 766689E61A35C58C1E2A5991 /* BridgeConnectKit.framework */;
@@ -239,8 +339,12 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					72C7B413AFB38DB22F801D98 = {
-						DevelopmentTeam = "$(DEVELOPMENT_TEAM)";
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					8F435A79BB97900FCA821BCC = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -257,6 +361,7 @@
 				10557F269ED8087F5A9FC719 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				BE6CF8B6F8E87E54F54B2E33 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
+			productRefGroup = 5430C85D01BE149D212AD514 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -266,18 +371,105 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		06E3199083FCEABE3D2A2646 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BridgeConnect-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84D69E0BE5B0A837E84BA8D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BridgeConnectKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC3C550522C621DB5A6666CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BridgeConnect/Pods-BridgeConnect-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BridgeConnect/Pods-BridgeConnect-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BridgeConnect/Pods-BridgeConnect-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAC7D4001E8DB4C592DA07A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BridgeConnectKit/Pods-BridgeConnectKit-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BridgeConnectKit/Pods-BridgeConnectKit-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BridgeConnectKit/Pods-BridgeConnectKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		25811338661DCCA1D26C7FD6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9EF4DEE0C8EBC9BFE6C153F2 /* AddResourceView.swift in Sources */,
+				D93F60B0A87CC8294A6A3DF8 /* AppDelegate.swift in Sources */,
 				A29E8F4FE83869AA55633598 /* BridgeConnectApp.swift in Sources */,
+				05380416374EEDC3FA6048B0 /* CategoryScrollView.swift in Sources */,
+				36C36FAD5365DD990B1C6F79 /* ContentView.swift in Sources */,
 				64919BA4443C452CB728BA95 /* EditResourceView.swift in Sources */,
 				50CFEC8869821C58ACE6C644 /* ResourceDetailView.swift in Sources */,
+				B4CF36FC3917C56E4142326C /* ResourceListContent.swift in Sources */,
 				E1AC1F765B19799DD59BDB30 /* ResourceListView.swift in Sources */,
+				5A2B1CD58CBCEADCD4F976E6 /* ResourceListViewModel.swift in Sources */,
 				473A42995ECD3A94CB99EAC5 /* ResourceMapView.swift in Sources */,
-				1FF405ABD3BC96A1E27FB06D /* SceneDelegate.swift in Sources */,
+				8517BB1AEA450F6F73616F41 /* ResourceMapViewModel.swift in Sources */,
+				4BF7254FDEE50098945F3389 /* ResourceRowView.swift in Sources */,
 				50F5D4DF2CA547657AC4EE30 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,9 +479,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAA0844A59A9CFFE215D7E8B /* BridgeConnectKit.swift in Sources */,
+				1DE42E9B701309F935FE9C83 /* Configuration.swift in Sources */,
+				0A9951B09BB73A6D356E1945 /* GoogleMapsService.swift in Sources */,
 				1A3C71E39E3DA0FFF3B6239F /* LocationService.swift in Sources */,
+				D1279E86455B987F43A38DC3 /* MapAnnotation.swift in Sources */,
+				D6F83837E52197825C54DC63 /* MapService.swift in Sources */,
+				863D11ABFA1A2EB773BC8808 /* PlaceSearchResult.swift in Sources */,
 				5506CEB5E5D9369939100D19 /* Resource.swift in Sources */,
 				EFADAEC5BBA0D5A969213815 /* ResourceAnnotation.swift in Sources */,
+				C34C4C456D8625EA24383F16 /* ResourceCategory.swift in Sources */,
 				100835C4C933D21A93096940 /* ResourceRepository.swift in Sources */,
 				B4886E3DB9CDC5FF91379AB1 /* ResourceType.swift in Sources */,
 			);
@@ -308,21 +506,27 @@
 /* Begin XCBuildConfiguration section */
 		17EE6C619B5EE34C618D89E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90FB3A0B7A2B404505A8684C /* Pods-BridgeConnectKit.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sources/BridgeConnectKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INSTALL_PATH = "@executable_path/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kimnguyen.bridgeconnect.kit;
@@ -336,21 +540,41 @@
 		};
 		2D6DFA9CA869C21F9A8E51C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DA0AD197B120236486B62C1 /* Pods-BridgeConnect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				BITCODE_GENERATION_MODE = bitcode;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/GoogleMaps/Maps/Frameworks\"",
+					"\"${PODS_ROOT}/GooglePlaces/Frameworks\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/GoogleMaps\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/GooglePlaces\"",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sources/BridgeConnectApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "BridgeConnect needs your location to find resources near you.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "BridgeConnect needs your location to find resources near you.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "BridgeConnect needs your location to find resources near you.";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kimnguyen.bridgeconnect;
 				PRODUCT_NAME = BridgeConnect;
 				SDKROOT = iphoneos;
@@ -423,21 +647,27 @@
 		};
 		9C471E666A3B0CA3BF12A300 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1714FD5542AB75C6F4B0FB87 /* Pods-BridgeConnectKit.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sources/BridgeConnectKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INSTALL_PATH = "@executable_path/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kimnguyen.bridgeconnect.kit;
@@ -451,21 +681,41 @@
 		};
 		B3C0109A6B5C0B9D587FE52A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5501B0354C931F70171D8E9 /* Pods-BridgeConnect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				BITCODE_GENERATION_MODE = bitcode;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/GoogleMaps/Maps/Frameworks\"",
+					"\"${PODS_ROOT}/GooglePlaces/Frameworks\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/GoogleMaps\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/GooglePlaces\"",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sources/BridgeConnectApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "BridgeConnect needs your location to find resources near you.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "BridgeConnect needs your location to find resources near you.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "BridgeConnect needs your location to find resources near you.";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kimnguyen.bridgeconnect;
 				PRODUCT_NAME = BridgeConnect;
 				SDKROOT = iphoneos;
@@ -567,7 +817,7 @@
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				kind = exactVersion;
-				version = 5.8.1;
+				version = 5.10.2;
 			};
 		};
 		BE6CF8B6F8E87E54F54B2E33 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
@@ -575,7 +825,7 @@
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
 				kind = exactVersion;
-				version = 10.45.2;
+				version = 10.54.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -592,6 +842,11 @@
 			productName = RealmSwift;
 		};
 		85EBDB8C734ED279FD83902F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10557F269ED8087F5A9FC719 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		B33D7D4DA375CFB2A54B57B7 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 10557F269ED8087F5A9FC719 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;

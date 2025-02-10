@@ -1,92 +1,178 @@
 import SwiftUI
 import MapKit
 import BridgeConnectKit
+import Combine
+import UIKit
 
-struct ResourceMapView: View {
-    @StateObject private var viewModel = ResourceMapViewModel()
-    @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
-        span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-    )
+fileprivate struct MapCategoryScrollView: View {
+    let selectedCategory: ResourceCategory?
+    let onSelectCategory: (ResourceCategory?) -> Void
     
     var body: some View {
-        Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: viewModel.resources) { resource in
-            MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: resource.latitude, longitude: resource.longitude)) {
-                NavigationLink(destination: ResourceDetailView(resource: resource)) {
-                    VStack {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 16) {
+                Button(action: { onSelectCategory(nil) }) {
+                    HStack(spacing: 4) {
+                        Image(systemName: "map")
+                        Text("All")
+                            .font(.subheadline)
+                            .bold()
+                    }
+                    .foregroundColor(selectedCategory == nil ? .white : .primary)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(selectedCategory == nil ? Color.accentColor : Color(.systemGray6))
+                    .clipShape(Capsule())
+                }
+                
+                ForEach(ResourceCategory.categories) { category in
+                    MapCategoryButton(
+                        category: category,
+                        isSelected: selectedCategory == category
+                    ) {
+                        withAnimation {
+                            onSelectCategory(category)
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal)
+        }
+        .padding(.vertical, 8)
+        .background(Color(.systemBackground).opacity(0.9))
+    }
+}
+
+fileprivate struct MapCategoryButton: View {
+    let category: ResourceCategory
+    let isSelected: Bool
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 4) {
+                Image(systemName: category.icon)
+                    .font(.system(size: 14))
+                Text(category.title)
+                    .font(.subheadline)
+                    .bold()
+            }
+            .foregroundColor(isSelected ? .white : .primary)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .background(isSelected ? category.color : Color(.systemGray6))
+            .clipShape(Capsule())
+        }
+    }
+}
+
+fileprivate struct ResourceAnnotation: Identifiable {
+    let id: String
+    let latitude: Double
+    let longitude: Double
+    let resource: Resource
+    
+    init(resource: Resource) {
+        self.id = resource.id
+        self.latitude = resource.latitude
+        self.longitude = resource.longitude
+        self.resource = resource
+    }
+}
+
+@available(iOS 15.0, *)
+struct ResourceMapView: View {
+    @StateObject private var viewModel = ResourceMapViewModel()
+    @State private var selectedResource: Resource?
+    @State private var showingResourceDetail = false
+    @State private var showLocationDeniedAlert = false
+    
+    var body: some View {
+        ZStack {
+            // Map View
+            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: viewModel.resources.map { ResourceAnnotation(resource: $0) }) { annotation in
+                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude)) {
+                    Button(action: {
+                        selectedResource = annotation.resource
+                        showingResourceDetail = true
+                    }) {
                         Image(systemName: "mappin.circle.fill")
                             .font(.title)
                             .foregroundColor(.red)
-                        
-                        Text(resource.name)
-                            .font(.caption)
-                            .padding(4)
-                            .background(Color.white)
-                            .cornerRadius(4)
                             .shadow(radius: 2)
                     }
                 }
             }
+            .edgesIgnoringSafeArea(.all)
+            
+            VStack(spacing: 0) {
+                MapCategoryScrollView(
+                    selectedCategory: viewModel.selectedCategory,
+                    onSelectCategory: viewModel.selectCategory
+                )
+                .padding(.top, 8)
+                
+                Spacer()
+            }
+            
+            if viewModel.isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .scaleEffect(1.5)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.black.opacity(0.2))
+            }
         }
-        .navigationTitle("Map")
+        .navigationTitle("Resources")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: viewModel.requestLocationPermission) {
-                    Image(systemName: "location")
+                Button(action: {
+                    Task {
+                        do {
+                            try await viewModel.getCurrentLocation()
+                        } catch {
+                            showLocationDeniedAlert = true
+                        }
+                    }
+                }) {
+                    Image(systemName: "location.circle.fill")
                 }
             }
         }
-        .task {
-            await viewModel.getCurrentLocation()
-        }
-    }
-}
-
-@MainActor
-class ResourceMapViewModel: ObservableObject {
-    @Published var resources: [Resource] = []
-    @Published var userLocation: CLLocation?
-    
-    private let repository = BridgeConnectKit.shared.resourceRepository
-    private let locationService = BridgeConnectKit.shared.locationService
-    
-    init() {
-        loadResources()
-    }
-    
-    func loadResources() {
-        let results = repository.getAllResources()
-        resources = Array(results)
-    }
-    
-    func requestLocationPermission() {
-        locationService.requestLocationPermission()
-    }
-    
-    func getCurrentLocation() async {
-        do {
-            let location = try await locationService.getCurrentLocation()
-            userLocation = location
-            await MainActor.run {
-                updateNearbyResources(location: location)
+        .sheet(isPresented: $showingResourceDetail) {
+            if let resource = selectedResource {
+                ResourceDetailView(resource: resource)
             }
-        } catch {
-            print("Error getting location: \(error)")
         }
-    }
-    
-    private func updateNearbyResources(location: CLLocation) {
-        let results = repository.getNearbyResources(
-            latitude: location.coordinate.latitude,
-            longitude: location.coordinate.longitude,
-            radiusInMeters: 5000
-        )
-        self.resources = Array(results)
+        .alert("Location Access Required", isPresented: $showLocationDeniedAlert) {
+            Button("Settings", role: .none) {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url)
+                }
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("Please enable location access in Settings to find resources near you.")
+        }
+        .onAppear {
+            Task {
+                do {
+                    try await viewModel.getCurrentLocation()
+                } catch {
+                    showLocationDeniedAlert = true
+                }
+            }
+        }
     }
 }
 
+#if DEBUG
 struct ResourceMapView_Previews: PreviewProvider {
     static var previews: some View {
-        ResourceMapView()
+        NavigationView {
+            ResourceMapView()
+        }
     }
-} 
+}
+#endif
+

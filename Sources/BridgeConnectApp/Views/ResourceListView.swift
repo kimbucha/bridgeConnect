@@ -6,26 +6,66 @@ struct ResourceListView: View {
     @StateObject private var viewModel = ResourceListViewModel()
     @State private var searchText = ""
     @State private var showingAddResource = false
+    @State private var isLoading = false
+    @State private var selectedCategory: ResourceCategory?
+    
+    private var filteredResources: [Resource] {
+        let resources = viewModel.resources
+        let categoryFiltered = selectedCategory == nil ? resources :
+            resources.filter { selectedCategory?.types.contains($0.type) ?? false }
+        
+        if searchText.isEmpty {
+            return categoryFiltered
+        }
+        
+        return categoryFiltered.filter {
+            $0.name.localizedCaseInsensitiveContains(searchText) ||
+            $0.description.localizedCaseInsensitiveContains(searchText)
+        }
+    }
+    
+    private var toolbarContent: some View {
+        HStack(spacing: 16) {
+            Button(action: { 
+                isLoading = true
+                Task {
+                    await viewModel.searchNearbyResources()
+                    isLoading = false
+                }
+            }) {
+                Image(systemName: "location.magnifyingglass")
+            }
+            .disabled(isLoading)
+            
+            Button(action: { showingAddResource = true }) {
+                Image(systemName: "plus")
+            }
+        }
+    }
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.resources, id: \.id) { resource in
-                    NavigationLink(destination: ResourceDetailView(resource: resource)) {
-                        ResourceRowView(resource: resource)
+            VStack(spacing: 0) {
+                CategoryScrollView(
+                    selectedCategory: selectedCategory,
+                    onSelectCategory: { category in
+                        selectedCategory = category
                     }
-                }
+                )
+                
+                ResourceListContent(
+                    resources: filteredResources,
+                    isLoading: isLoading
+                )
             }
             .navigationTitle("Resources")
-            .searchable(text: $searchText)
+            .searchable(text: $searchText, prompt: "Search resources...")
             .onChange(of: searchText) { newValue in
-                viewModel.search(query: newValue)
+                viewModel.filterResources(searchText: newValue)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { showingAddResource = true }) {
-                        Image(systemName: "plus")
-                    }
+                    toolbarContent
                 }
             }
             .sheet(isPresented: $showingAddResource) {
@@ -35,44 +75,10 @@ struct ResourceListView: View {
     }
 }
 
-class ResourceListViewModel: ObservableObject {
-    @Published var resources: [Resource] = []
-    private let repository = BridgeConnectKit.shared.resourceRepository
-    
-    init() {
-        loadResources()
-    }
-    
-    func loadResources() {
-        let results = repository.getAllResources()
-        resources = Array(results)
-    }
-    
-    func search(query: String) {
-        if query.isEmpty {
-            loadResources()
-        } else {
-            let results = repository.searchResources(query: query)
-            resources = Array(results)
-        }
-    }
-}
 
-struct ResourceRowView: View {
-    let resource: Resource
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(resource.name)
-                .font(.headline)
-            Text(resource.description)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .lineLimit(2)
-        }
-        .padding(.vertical, 4)
-    }
-}
+
+
+
 
 struct ResourceListView_Previews: PreviewProvider {
     static var previews: some View {

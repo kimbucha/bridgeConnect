@@ -21,7 +21,7 @@ struct EditResourceView: View {
                         .frame(minHeight: 100)
                     Picker("Type", selection: $viewModel.type) {
                         ForEach(ResourceType.allCases, id: \.self) { type in
-                            Text(type.rawValue).tag(type)
+                            Text(type.displayName).tag(type.rawValue)
                         }
                     }
                 }
@@ -80,14 +80,14 @@ struct EditResourceView: View {
 class EditResourceViewModel: ObservableObject {
     @Published var name: String
     @Published var resourceDescription: String
-    @Published var type: ResourceType
+    @Published var type: String
     @Published var address: String
     @Published var phone: String
     @Published var email: String
     @Published var website: String
     
     @Published var region: MKCoordinateRegion
-    @Published var annotations: [ResourceAnnotation]
+    @Published var annotations: [LocationAnnotation]
     @Published var isLoadingLocation = false
     @Published var showError = false
     @Published var errorMessage = ""
@@ -100,7 +100,7 @@ class EditResourceViewModel: ObservableObject {
         self.resource = resource
         self.name = resource.name
         self.resourceDescription = resource.resourceDescription
-        self.type = ResourceType(rawValue: resource.type) ?? .other
+        self.type = resource.type
         self.address = resource.address
         self.phone = resource.phone
         self.email = resource.email
@@ -116,7 +116,7 @@ class EditResourceViewModel: ObservableObject {
             span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         )
         
-        self.annotations = [ResourceAnnotation(coordinate: coordinate)]
+        self.annotations = [LocationAnnotation(coordinate: coordinate)]
     }
     
     var isValid: Bool {
@@ -148,7 +148,7 @@ class EditResourceViewModel: ObservableObject {
                     span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
                 )
                 
-                self?.annotations = [ResourceAnnotation(coordinate: location.coordinate)]
+                self?.annotations = [LocationAnnotation(coordinate: location.coordinate)]
             }
         }
     }
@@ -157,10 +157,10 @@ class EditResourceViewModel: ObservableObject {
         guard let coordinate = annotations.first?.coordinate else { return }
         
         do {
-            try repository.update(resource) { resource in
+            try repository?.update(resource) { resource in
                 resource.name = name
                 resource.resourceDescription = resourceDescription
-                resource.type = type.rawValue
+                resource.type = type
                 resource.latitude = coordinate.latitude
                 resource.longitude = coordinate.longitude
                 resource.address = address

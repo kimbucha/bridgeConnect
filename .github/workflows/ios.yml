@@ -1,0 +1,32 @@
+name: iOS CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install XcodeGen
+      run: brew install xcodegen
+      
+    - name: Install CocoaPods
+      run: gem install cocoapods
+      
+    - name: Generate Xcode Project
+      run: xcodegen generate
+      
+    - name: Install Dependencies
+      run: pod install
+      
+    - name: Build
+      run: xcodebuild -workspace BridgeConnect.xcworkspace -scheme BridgeConnect -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest' build
+      
+    - name: Test
+      run: xcodebuild -workspace BridgeConnect.xcworkspace -scheme BridgeConnect -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=latest' test

@@ -9,16 +9,18 @@ let package = Package(
     products: [
         .library(
             name: "BridgeConnectKit",
+            type: .dynamic,
             targets: ["BridgeConnectKit"]
         ),
-        .executable(
-            name: "BridgeConnect",
+        .library(
+            name: "BridgeConnectApp",
+            type: .dynamic,
             targets: ["BridgeConnectApp"]
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.8.1"),
-        .package(url: "https://github.com/realm/realm-swift.git", from: "10.45.2")
+        .package(url: "https://github.com/Alamofire/Alamofire.git", exact: "5.10.2"),
+        .package(url: "https://github.com/realm/realm-swift.git", exact: "10.54.2")
     ],
     targets: [
         // Framework target
@@ -28,26 +30,29 @@ let package = Package(
                 .product(name: "Alamofire", package: "Alamofire"),
                 .product(name: "RealmSwift", package: "realm-swift")
             ],
-            path: "Sources/BridgeConnectKit"
+            path: "Sources/BridgeConnectKit",
+            resources: [
+                .process("Resources")
+            ]
         ),
         // App target
         .target(
             name: "BridgeConnectApp",
             dependencies: [
-                "BridgeConnectKit"
+                "BridgeConnectKit",
+                .product(name: "RealmSwift", package: "realm-swift"),
+                .product(name: "Alamofire", package: "Alamofire")
             ],
             path: "Sources/BridgeConnectApp"
         ),
         // Test targets
         .testTarget(
             name: "BridgeConnectKitTests",
-            dependencies: ["BridgeConnectKit"],
-            path: "Tests/BridgeConnectKitTests"
+            dependencies: ["BridgeConnectKit"]
         ),
         .testTarget(
             name: "BridgeConnectAppTests",
-            dependencies: ["BridgeConnectApp"],
-            path: "Tests/BridgeConnectAppTests"
+            dependencies: ["BridgeConnectApp"]
         )
     ]
 ) 

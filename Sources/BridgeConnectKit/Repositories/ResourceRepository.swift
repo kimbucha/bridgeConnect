@@ -1,15 +1,56 @@
 import Foundation
 import RealmSwift
 
+@available(macOS 10.15, *)
 public final class ResourceRepository {
     public static let shared = ResourceRepository()
-    private let realm: Realm
+    public let realm: Realm
     
-    private init() {
+    public init() {
         do {
             realm = try Realm()
+            if realm.objects(Resource.self).isEmpty {
+                loadInitialData()
+            }
         } catch {
             fatalError("Failed to initialize Realm: \(error)")
+        }
+    }
+    
+    private func loadInitialData() {
+        guard let url = Bundle(for: type(of: self)).url(forResource: "default", withExtension: "csv") else {
+            print("Failed to locate resource \"default.csv\"")
+            return
+        }
+        
+        do {
+            let content = try String(contentsOf: url)
+            let rows = content.components(separatedBy: "\n").dropFirst() // Skip header
+            
+            let resources = rows.compactMap { row -> Resource? in
+                let columns = row.components(separatedBy: ",")
+                guard columns.count >= 5,
+                      let latitude = Double(columns[3]),
+                      let longitude = Double(columns[4]) else {
+                    return nil
+                }
+                
+                let resource = Resource()
+                resource.name = columns[0].trimmingCharacters(in: CharacterSet.whitespaces)
+                resource.type = columns[1].trimmingCharacters(in: CharacterSet.whitespaces)
+                resource.resourceDescription = columns[2].trimmingCharacters(in: CharacterSet.whitespaces)
+                                                      .replacingOccurrences(of: "\"", with: "")
+                resource.latitude = latitude
+                resource.longitude = longitude
+                resource.updatedAt = Date()
+                return resource
+            }
+            
+            try realm.write {
+                realm.add(resources)
+            }
+        } catch {
+            print("Failed to load initial data: \(error)")
         }
     }
     
@@ -19,6 +60,27 @@ public final class ResourceRepository {
         try realm.write {
             resource.updatedAt = Date()
             realm.add(resource, update: .modified)
+        }
+    }
+    
+    public func batchSave(resources: [Resource]) throws {
+        try realm.write {
+            for resource in resources {
+                resource.updatedAt = Date()
+                realm.add(resource, update: .modified)
+            }
+        }
+    }
+    
+    public func saveResources(_ resources: [Resource]) async throws {
+        try await MainActor.run {
+            try realm.write {
+                let now = Date()
+                resources.forEach { resource in
+                    resource.updatedAt = now
+                    realm.add(resource, update: .modified)
+                }
+            }
         }
     }
     

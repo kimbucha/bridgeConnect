@@ -73,7 +73,7 @@ struct ResourceDetailView: View {
                     
                     // Metadata
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Type: \(resource.type)")
+                        Text("Type: \(ResourceType.from(string: resource.type).displayName)")
                             .font(.subheadline)
                         Text("Last updated: \(formattedDate(resource.updatedAt))")
                             .font(.subheadline)
@@ -134,20 +134,83 @@ struct ContactRow: View {
     }
 }
 
+#if DEBUG
 struct ResourceDetailView_Previews: PreviewProvider {
+    static let sampleResource = Resource(
+        id: UUID().uuidString,
+        name: "Emergency Shelter SF",
+        resourceDescription: "24/7 emergency shelter in San Francisco with food and basic amenities. Open to all individuals in need of temporary housing.",
+        type: "shelter",
+        address: "123 Main St, San Francisco, CA 94105",
+        coordinate: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
+        phone: "(415) 555-0123",
+        website: "https://example.com",
+        hours: ["Monday": "Open 24/7", "Tuesday": "Open 24/7", "Wednesday": "Open 24/7", "Thursday": "Open 24/7", "Friday": "Open 24/7", "Saturday": "Open 24/7", "Sunday": "Open 24/7"]
+    )
+    
     static var previews: some View {
         NavigationView {
-            ResourceDetailView(resource: Resource(
-                name: "Sample Resource",
-                resourceDescription: "A sample resource for preview",
-                type: "Food Bank",
-                latitude: 37.7749,
-                longitude: -122.4194,
-                address: "123 Main St",
-                phone: "555-1234",
-                email: "sample@example.com",
-                website: "https://example.com"
-            ))
+            ResourceDetailView(resource: sampleResource)
         }
     }
-} 
+    
+    // Preview different states and configurations
+    static var previewStates: some View {
+        Group {
+            // Default view
+            NavigationView {
+                ResourceDetailView(resource: sampleResource)
+            }
+            .previewDisplayName("Default")
+            
+            // Dark mode
+            NavigationView {
+                ResourceDetailView(resource: sampleResource)
+            }
+            .preferredColorScheme(.dark)
+            .previewDisplayName("Dark Mode")
+            
+            // Large text
+            NavigationView {
+                ResourceDetailView(resource: sampleResource)
+            }
+            .environment(\.sizeCategory, .accessibilityLarge)
+            .previewDisplayName("Large Text")
+            
+            // Right-to-left
+            if #available(iOS 15.0, *) {
+                NavigationView {
+                    ResourceDetailView(resource: sampleResource)
+                }
+                .environment(\.layoutDirection, .rightToLeft)
+                .previewDisplayName("Right to Left")
+            }
+        }
+    }
+    
+    // Preview different devices
+    static var previewDevices: some View {
+        Group {
+            NavigationView {
+                ResourceDetailView(resource: sampleResource)
+            }
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro"))
+            .previewDisplayName("iPhone 14 Pro")
+            
+            NavigationView {
+                ResourceDetailView(resource: sampleResource)
+            }
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+            .previewDisplayName("iPhone SE")
+            
+            if #available(iOS 15.0, *) {
+                NavigationView {
+                    ResourceDetailView(resource: sampleResource)
+                }
+                .previewInterfaceOrientation(.landscapeLeft)
+                .previewDisplayName("Landscape")
+            }
+        }
+    }
+}
+#endif

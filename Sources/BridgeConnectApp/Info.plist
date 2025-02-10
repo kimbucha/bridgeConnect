@@ -18,22 +18,18 @@
 	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>BridgeConnect needs your location to find resources near you.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>BridgeConnect needs your location to find resources near you.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>BridgeConnect needs your location to find resources near you.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 		<key>UISceneConfigurations</key>
-		<dict>
-			<key>UIWindowSceneSessionRoleApplication</key>
-			<array>
-				<dict>
-					<key>UISceneConfigurationName</key>
-					<string>Default Configuration</string>
-					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-				</dict>
-			</array>
-		</dict>
+		<dict/>
 	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string></string>

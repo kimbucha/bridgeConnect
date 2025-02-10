@@ -15,7 +15,7 @@ struct AddResourceView: View {
                         .frame(minHeight: 100)
                     Picker("Type", selection: $viewModel.type) {
                         ForEach(ResourceType.allCases, id: \.self) { type in
-                            Text(type.rawValue).tag(type)
+                            Text(type.displayName).tag(type.rawValue)
                         }
                     }
                 }
@@ -74,7 +74,7 @@ struct AddResourceView: View {
 class AddResourceViewModel: ObservableObject {
     @Published var name = ""
     @Published var resourceDescription = ""
-    @Published var type = ResourceType.other
+    @Published var type = ResourceType.other.rawValue
     @Published var address = ""
     @Published var phone = ""
     @Published var email = ""
@@ -85,7 +85,7 @@ class AddResourceViewModel: ObservableObject {
         span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     )
     
-    @Published var annotations: [ResourceAnnotation] = []
+    @Published var annotations: [LocationAnnotation] = []
     @Published var isLoadingLocation = false
     @Published var showError = false
     @Published var errorMessage = ""
@@ -122,7 +122,7 @@ class AddResourceViewModel: ObservableObject {
                     span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
                 )
                 
-                self?.annotations = [ResourceAnnotation(coordinate: location.coordinate)]
+                self?.annotations = [LocationAnnotation(coordinate: location.coordinate)]
             }
         }
     }
@@ -133,7 +133,7 @@ class AddResourceViewModel: ObservableObject {
         let resource = Resource(
             name: name,
             resourceDescription: resourceDescription,
-            type: type.rawValue,
+            type: ResourceType(rawValue: type) ?? .other,
             latitude: coordinate.latitude,
             longitude: coordinate.longitude,
             address: address,
@@ -143,7 +143,7 @@ class AddResourceViewModel: ObservableObject {
         )
         
         do {
-            try repository.save(resource)
+            try repository?.save(resource)
         } catch {
             showError = true
             errorMessage = error.localizedDescription
